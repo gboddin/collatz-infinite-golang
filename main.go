@@ -51,6 +51,7 @@ func main() {
   // Init some counters
   var steps int64 = 0
   var previous_time int64 = 0
+  var biggest_steps int64 = 0
 
   // Start from a random number with xxx figures
   i.SetString(srand(figures_count), 10)  
@@ -85,6 +86,10 @@ func main() {
       // Save time counter
       previous_time = time.Now().Unix()
     }
+   }
+   if ( biggest_steps < steps ) {
+     fmt.Println("Biggest steps : ", i.String(), "has", biggest_steps, "steps")
+     biggest_steps = steps
    }
 
   // We're done for this number, add 1 and go again
